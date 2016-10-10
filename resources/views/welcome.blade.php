@@ -75,7 +75,7 @@
 
     <div class="content">
       <div class="title m-b-md">
-        Gestão de Produtos
+        Product management
       </div>
     </div>
   </div>

@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::resource('/imports', 'ImportController', ['only' => ['index', 'create', 'store']]);
-Route::resource('/products', 'ProductController', ['only' => ['index']]);
+Route::resource('/products', 'ProductController', ['only' => ['index', 'edit', 'update', 'destroy']]);

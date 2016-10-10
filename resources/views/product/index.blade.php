@@ -25,14 +25,21 @@
 
             <tbody>
               @foreach ($products as $product)
-                <tr>
-                  <td>{{ $product->lm }}</td>
-                  <td>{{ $product->name }}</td>
-                  <td>{{ $product->category }}</td>
-                  <td>{{ $product->price }}</td>
-                  <td>{{ $product->free_shipping }}</td>
-                  <td></td>
-                </tr>
+              <tr>
+                <td>{{ $product->lm }}</td>
+                <td>{{ $product->name }}</td>
+                <td>{{ $product->category }}</td>
+                <td>{{ $product->price }}</td>
+                <td>{{ $product->free_shipping ? 'Yes' : 'No' }}</td>
+                <td>
+                  <a href="{{ route('products.edit', ['id' => $product->id]) }}" class='btn btn-sm btn-primary'>Edit</a>
+                  <form action="{{ route('products.destroy', ['id' => $product->id]) }}" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value='Delete' class='btn btn-sm btn-danger'>
+                  </form>
+                </td>
+              </tr>
               @endforeach
             </tbody>
           </table>

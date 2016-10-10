@@ -15,7 +15,7 @@ class LoginTest extends TestCase
   {
     $user = factory(App\User::class)->create(['password' => bcrypt('senha1')]);
 
-    $this->visit('/')->see('Gestão de Produtos')
+    $this->visit('/')->see('Product management')
       ->click('Login')
       ->type($user->email, 'email')
       ->type('senha1', 'password')
@@ -26,7 +26,7 @@ class LoginTest extends TestCase
 
   public function testLoginInvalid()
   {
-    $this->visit('/')->see('Gestão de Produtos')
+    $this->visit('/')->see('Product management')
       ->click('Login')
       ->type('email@qualquer.com', 'email')
       ->type('senha1', 'password')
